@@ -1,0 +1,10 @@
+Flask-Login==0.6.1
+Flask-Mail==0.9.1
+Flask==2.0.2
+SQLAlchemy==1.4.35
+Flask-SQLAlchemy==2.5.1
+sqlalchemy_utils==0.38.2
+passlib==1.7.4
+# WTForms==3.0.1 与代码有兼容性问题
+WTForms==2.0
+mysql-connector-python==8.0.29
