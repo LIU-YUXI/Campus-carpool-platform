@@ -32,7 +32,7 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
         user = User.query.filter_by(u_account=form.u_account.data).first()
-        print('user',user,form.u_password.data,user.check_passward('123456789'))
+        # print('user',user,form.u_password.data,user.check_passward('123456789'))
         if user and user.check_passward(form.u_password.data):
             print(user)
             from flask import session

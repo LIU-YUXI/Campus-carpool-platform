@@ -11,11 +11,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.models.base import db, Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
-from flask_login import UserMixin
+# from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from app.models.License import Registration,License
 
-class Driver(UserMixin, Base):
+class Driver( Base):
     __tablename__ = 'driver'
     id = Column(Integer, autoincrement=True, primary_key=True)
     d_account = Column(String(20), nullable=False)
@@ -78,10 +78,11 @@ class Driver(UserMixin, Base):
     def check_passward(self, raw):
         return check_password_hash(self.d_password, raw)
 
-
+'''
 from app import login_manager
 
 @login_manager.user_loader
 def get_driver(uid):
     return Driver.query.get(int(uid))
+'''
 

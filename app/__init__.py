@@ -43,10 +43,10 @@ from app.web import web
 from app.driver import driver
 from app.admin import admin    
 def register_blueprint(app):
-
+    app.register_blueprint(web)
     app.register_blueprint(driver)    
     app.register_blueprint(admin)
-    app.register_blueprint(web)
+
 
 
 

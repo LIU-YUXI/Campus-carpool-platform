@@ -75,7 +75,7 @@ class User(UserMixin, Base):
         self.u_password = generate_password_hash(raw)
 
     def check_passward(self, raw):
-        # print(self.u_password,raw,generate_password_hash(raw))
+        print(self.u_password,raw,generate_password_hash(raw))
         return self.u_password==raw# check_password_hash(self.u_password, raw)
 
 
