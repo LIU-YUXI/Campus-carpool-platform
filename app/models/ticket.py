@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-#
-# -------------------------------------------------------------------------------
-# Name:         ticket
-# Date:         2019/4/9
-# -------------------------------------------------------------------------------
-from sqlalchemy.orm import relationship, backref
 
 from app.models.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey
-
+from sqlalchemy.orm import relationship, backref
 
 class Company(Base):
     __tablename__ = 'company'

@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-#
-# -------------------------------------------------------------------------------
-# Name:         user
-# Date:         2019/4/9
-# -------------------------------------------------------------------------------
 
-from xmlrpc.client import boolean
 from flask import current_app
-from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.models.base import db, Base

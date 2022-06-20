@@ -1,10 +1,3 @@
-from os import umask
-from re import M
-from sqlite3 import dbapi2
-from turtle import st
-from numpy import integer
-from sqlalchemy.orm import relationship, backref
-
 from app.models.base import db,Base
 from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey, VARCHAR
 from datetime import datetime

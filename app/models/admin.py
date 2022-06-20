@@ -5,9 +5,6 @@
     Description :
 """
 
-from flask import current_app
-from numpy import integer
-from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.models.base import db, Base
