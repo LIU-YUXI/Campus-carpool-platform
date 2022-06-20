@@ -26,18 +26,18 @@ def create_app():
     login_manager.login_message = '请先登录或注册'
     with app.app_context():
         db.create_all(app=app)
-        if not Admin.query.filter_by(m_account='admin').first():
-            ad = Admin()
-            ad.m_id = 0
-            ad.m_account = 'admin'
-            ad.m_role = 'super'
-            ad.m_name = '李四'
-            ad.m_age = 35
-            ad.m_tel = '18912341234'
-            ad.m_gender = '男'
-            ad.m_password = generate_password_hash('123456')
-            with db.auto_commit():
-                db.session.add(ad)
+        # if not Admin.query.filter_by(m_account='admin').first():
+        #     ad = Admin()
+        #     ad.m_id = 0
+        #     ad.m_account = 'admin'
+        #     ad.m_role = 'super'
+        #     ad.m_name = '李四'
+        #     ad.m_age = 35
+        #     ad.m_tel = '18912341234'
+        #     ad.m_gender = '男'
+        #     ad.m_password = generate_password_hash('123456')
+        #     with db.auto_commit():
+        #         db.session.add(ad)
     return app
 from app.web import web
 from app.driver import driver
