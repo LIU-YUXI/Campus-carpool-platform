@@ -2,7 +2,7 @@
 
 from app.models.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey
-
+from sqlalchemy.orm import relationship, backref
 
 class Company(Base):
     __tablename__ = 'company'
