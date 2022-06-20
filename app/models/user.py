@@ -11,6 +11,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.models.base import db, Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
+from sqlalchemy_utils import PasswordType
 from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
@@ -24,7 +25,7 @@ class User(UserMixin, Base):
     u_stid = Column(String(20),nullable=False,unique=True)
     u_gender = Column(String(10),nullable=False)
     u_age = Column(Integer)
-    u_password = Column('u_password', String(128), nullable=False)
+    u_password = Column('u_password', PasswordType(schemes=['pbkdf2_sha512']), nullable=False)
     u_disable = Column(Boolean,nullable=False)
 
     def create_user(self, form):
@@ -75,6 +76,7 @@ class User(UserMixin, Base):
         self.u_password = generate_password_hash(raw)
 
     def check_passward(self, raw):
+        print("开始检查密码！")
         print(self.u_password,raw,generate_password_hash(raw))
         return self.u_password==raw# check_password_hash(self.u_password, raw)
 
