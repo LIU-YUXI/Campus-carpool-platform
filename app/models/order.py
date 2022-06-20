@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    File Name：    order
-    Date：         2019/4/10
-    Description :
-"""
-from sqlalchemy.orm import relationship, backref
-
 from app.models.base import db,Base
 from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey, null
 from app.models.driver import Driver

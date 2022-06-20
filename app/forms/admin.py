@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-#
-# -------------------------------------------------------------------------------
-# Name:         admin
-# Date:         2019/4/11
-# -------------------------------------------------------------------------------
 
 from wtforms import StringField, PasswordField, Form, SelectField, SubmitField, RadioField, DateField, DateTimeField, \
     HiddenField, IntegerField
