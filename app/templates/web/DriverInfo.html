@@ -21,9 +21,10 @@
             <div id="horizontalTab">
                 <ul id="navigation_list">
                     <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.index') }}')"><span>约车首页</span></a>
-                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.search') }}')"><span>司机登录</span></a>
-                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>司机注册</span></a>
-                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>司机中心</span></a>
+                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.notice_show') }}')"><span>公告消息</span></a>
+                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.search_driver_detail') }}')"><span>搜索司机</span></a>
+                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('driver.register') }}')"><span>司机注册</span></a>
+                    <a class="navigation-item" onclick="window.location.replace('{{ url_for('driver.login') }}')"><span>司机中心</span></a>
                     <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>学生注册</span></a>                
                     <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.login') }}')"><span>学生登录</span></a>
                     <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.personal_info') }}')"><span>学生中心</span></a>
@@ -55,10 +56,10 @@
                     <td style="color: #00bcd4"><a href="{{ url_for('web.personal_info') }}" style="color: #00bcd4"><span>我的信息</span></a></td>
                 </tr>
                 <tr style="height: 30px">
-                    <td><a href="{{ url_for('web.my_order') }}" style="color: #00bcd4"><span>我的订单</span></a></td>
+                    <td><a href="{{ url_for('web.my_order_driver',driver_id=driver_id) }}" style="color: #00bcd4"><span>我的订单</span></a></td>
                 </tr>
                 <tr style="height: 30px">
-                    <td><a href="{{ url_for('web.my_order') }}" style="color: #00bcd4"><span>查询可接订单</span></a></td>
+                    <td><a href="{{ url_for('web.accept_order', driver_id=driver_id) }}" style="color: #00bcd4"><span>查询可接订单</span></a></td>
                 </tr>
                 <tr style="height: 30px">
                     <td><a href="{{ url_for('web.logout') }}" style="color: #00bcd4"><span>退出登录</span></a></td>
@@ -72,44 +73,44 @@
             <form action="{{ url_for('web.personal_info') }}" method="post" style="margin: 10px">
                 <table style="margin: 10px">
                     <tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_account.label }}</td>
-                        <td>{{ form.u_account() }}</td>
+                        <td style="color: #212121">{{ form.d_account.label }}</td>
+                        <td>{{ form.d_account() }}</td>
                     </tr>
                     <tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_password.label }}</td>
-                        <td>{{ form.u_password() }}</td>
+                        <td style="color: #212121">{{ form.d_password.label }}</td>
+                        <td>{{ form.d_password() }}</td>
                     </tr>
                     <tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_name.label }}</td>
-                        <td>{{ form.u_name }}</td>
+                        <td style="color: #212121">{{ form.d_name.label }}</td>
+                        <td>{{ form.d_name }}</td>
                     </tr>
                     <tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_stid.label }} </td>
-                        <td>{{ form.u_stid(id="signup_id") }}</td>
+                        <td style="color: #212121">{{ form.d_workid.label }} </td>
+                        <td>{{ form.d_workid(id="signup_id") }}</td>
                     </tr>
                     <tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_tel.label }}</td>
-                        <td> {{ form.u_tel(id="phone_num") }}</td>
+                        <td style="color: #212121">{{ form.d_tel.label }}</td>
+                        <td> {{ form.d_tel(id="phone_num") }}</td>
                     </tr>
 					<tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_record.label }}</td>
-                        <td> {{ form.u_record }}</td>
+                        <td style="color: #212121">{{ form.d_crecordid.label }}</td>
+                        <td> {{ form.d_crecordid }}</td>
                     </tr>
 					<tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_record_type.label }}</td>
-                        <td> {{ form.u_record_type }}</td>
+                        <td style="color: #212121">{{ form.d_record_type.label }}</td>
+                        <td> {{ form.d_record_type }}</td>
                     </tr>
 					<tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_record_carnum.label }}</td>
-                        <td> {{ form.u_record_carnum }}</td>
+                        <td style="color: #212121">{{ form.d_carnum.label }}</td>
+                        <td> {{ form.d_carnum }}</td>
                     </tr>
 					<tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_record_feature.label }}</td>
-                        <td> {{ form.u_record_feature }}</td>
+                        <td style="color: #212121">{{ form.d_record_feature.label }}</td>
+                        <td> {{ form.d_record_feature }}</td>
                     </tr>
                     <tr style="height: 30px;text-align: center">
-                        <td style="color: #212121">{{ form.u_record_num.label }}</td>
-                        <td> {{ form.u_record_num }}</td>
+                        <td style="color: #212121">{{ form.d_record_num.label }}</td>
+                        <td> {{ form.d_record_num }}</td>
                     </tr>
                 </table>
                 <input type="submit" value="修改" style="margin-left: 100px " onclick="return check()">

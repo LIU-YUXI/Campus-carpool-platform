@@ -15,11 +15,14 @@
     <div class="navigation">
         <div id="horizontalTab">
             <ul id="navigation_list">
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.index') }}')"><span>网站首页</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.search') }}')"><span>机票查询</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>会员注册</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.login') }}')"><span>会员登陆</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.personal_info') }}')"><span>会员中心</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.index') }}')"><span>约车首页</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.notice_show') }}')"><span>公告消息</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.search_driver_detail') }}')"><span>搜索司机</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('driver.register') }}')"><span>司机注册</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('driver.login') }}')"><span>司机中心</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>学生注册</span></a>                
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.login') }}')"><span>学生登录</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.personal_info') }}')"><span>学生中心</span></a>
             </ul>
         </div>
     </div>

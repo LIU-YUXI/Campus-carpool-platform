@@ -257,3 +257,14 @@ input[type="submit"] {
     -o-transition: 0.5s all ease;
     -ms-transition: 0.5s all ease;
 }
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}

@@ -5,7 +5,8 @@
     Description :
 """
 from datetime import datetime
-from wtforms import StringField, PasswordField, Form, SelectField, RadioField, DateField
+from sqlalchemy import Integer
+from wtforms import StringField, PasswordField, Form, SelectField, RadioField, DateField, IntegerField
 from wtforms.validators import Length
 from .base import DataRequired
 
@@ -31,3 +32,17 @@ class OrderForm(Form):
     name = StringField('姓名', validators=[DataRequired(), Length(1, 10)])
     phone_number = StringField('手机号码', validators=[DataRequired()])
     id_card = StringField('学生证号码', validators=[DataRequired()])
+
+class OrderDriverForm(Form):
+    # 预订机票表单
+    order_id = StringField('订单号', validators=[DataRequired()])
+    route = StringField('行程', validators=[DataRequired()])
+    depart_time = StringField('发车时间', validators=[DataRequired()])
+    
+    # ticket_type = SelectField('机票类型', choices=[('经济舱', '经济舱'), ('商务舱', '商务舱'), ('头等舱', '头等舱')])
+    name = StringField('姓名', validators=[DataRequired(), Length(1, 10)])
+    phone_number = StringField('手机号码', validators=[DataRequired()])
+    price = IntegerField('价格', validators=[DataRequired()])
+
+class SearchDriverForm(Form):
+    driver_name = StringField('司机姓名', validators=[DataRequired(), Length(1, 20)])

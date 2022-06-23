@@ -260,7 +260,27 @@ input[type="submit"]:hover  {
     display: inline-block;
 }
 .order_form{
-    margin-top: 100px;
+    margin-top: 10px;
     margin-right: 100px;
-
 }
+
+.input_comment {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+    font-weight: 300;
+    height: 100px;
+  }

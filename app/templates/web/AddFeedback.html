@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>发起拼车</title>
+    <title>添加订单评论</title>
 {#    <link rel="stylesheet" href="../../static/style.css">#}
     <link rel="stylesheet" href="../../static/web_style.css"
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,7 +15,7 @@
 
     <div id="head" style="color: black">
     <div class="head_title">
-        <h1 style="color: #212121">拼车信息</h1>
+        <h1 style="color: #212121">添加订单评论</h1>
     </div>
     <div class="navigation">
         <div id="horizontalTab">
@@ -52,30 +52,30 @@
         </div>
         <div class="right" style="width: 40%;float: right;margin-right: 15%">
             <div class="order_form">
-                <form action="{{ url_for('web.add_order') }}" method="post" style="color: #E5E5E5">
+                <form action="{{ url_for('web.add_feedback',order_id=form.order_id.default) }}" method="post" style="color: #E5E5E5">
                      <table style="margin: auto">
                          <tr style="height: 30px">
-                             <td style="color: #212121">{{ form.o_staddr.label }}</td>
-                             <td>{{ form.o_staddr }}</td>
-                         </tr>
-                         <tr style="height: 30px">
-                             <td style="color: #212121">{{ form.o_daddr.label }}</td>
-                             <td>{{ form.o_daddr }}</td>
-                         </tr>
-                         <tr style="height: 30px">
-                             <td style="color: #212121">{{ form.depart_date.label }}</td>
-                             <td>{{ form.depart_date }}</td>
+                             <td style="color: #212121">{{ form.order_id.label }}</td>
+                             <td>{{ form.order_id }}</td>
                          </tr>
                          <tr style="height: 30px">
                              <td style="color: #212121">{{ form.depart_time.label }}</td>
                              <td>{{ form.depart_time }}</td>
                          </tr>
                          <tr style="height: 30px">
-                             <td style="color: #212121">{{ form.o_price.label }}</td>
-                             <td>{{ form.o_price }}</td>
+                             <td style="color: #212121">{{ form.route.label }}</td>
+                             <td>{{ form.route }}</td>
                          </tr>
+                         <tr style="height: 30px">
+                             <td style="color: #212121">{{ form.price.label }}</td>
+                             <td>{{ form.price }}</td>
+                         </tr>
+                         <tr style="height: 130px">
+							<td style="color: #212121;">{{ form.content.label }}</td>
+							<textarea id="ta1" style="width:200px;height:100px; left: 180px; top:250px;position: relative;" name="content"></textarea>
+						</tr>
                      </table>
-                     <input type="submit" value="发起拼车" onclick="return check()"style="margin-left: 35%">
+                     <input type="submit" value="添加评论" onclick="return check()"style="margin-left: 35%">
                  </form>
             </div>
         </div>
@@ -118,6 +118,30 @@
         if(!check_phone()){
             return false;
         }
+        /*
+        if(!/^\d{17}(\d|x)$/i.test(sId)){
+            alert('你输入的身份证长度或格式错误');
+            return false;
+        }
+        sId=sId.replace(/x$/i,"a");
+        if(aCity[parseInt(sId.substr(0,2))]==null){
+            alert('你输入的身份证长度或格式错误');
+            return false;
+        }
+        sBirthday=sId.substr(6,4)+"-"+Number(sId.substr(10,2))+"-"+Number(sId.substr(12,2));
+        var d=new Date(sBirthday.replace(/-/g,"/")) ;
+        if(sBirthday!=(d.getFullYear()+"-"+ (d.getMonth()+1) + "-" + d.getDate())){
+            alert('你输入的身份证长度或格式错误');
+            return false;
+        }
+        for(var i = 17;i>=0;i --) iSum += (Math.pow(2,i) % 11) * parseInt(sId.charAt(17 - i),11) ;
+        if(iSum%11!=1){
+            alert('你输入的身份证长度或格式错误');
+            return false;
+        }
+        //aCity[parseInt(sId.substr(0,2))]+","+sBirthday+","+(sId.substr(16,1)%2?"男":"女");//此次还可以判断出输入的身份证号的人性别
+        return true;
+*/
     }
 </script>
 </body>

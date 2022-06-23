@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../static/admin_style.css">
+    <link rel="stylesheet" href="/static/admin_style.css">
     <title>添加机票</title>
 </head>
 <body>
@@ -26,8 +26,8 @@
             </div>
             <div class="admin_manage_content">
                 <ul class="admin_manage_list">
-                    <a class="admin_manage_item" href="{{ url_for('admin.add_admin') }}"><span>添加管理员</span></a>
-                    <a class="admin_manage_item" href="{{ url_for('admin.admin_manage') }}"><span>管理员管理</span></a>
+                    <a class="admin_manage_item" href="{{ url_for('admin.add_admin',admin_id=admin_id) }}"><span>添加管理员</span></a>
+                    <a class="admin_manage_item" href="{{ url_for('admin.admin_manage',admin_id=admin_id) }}"><span>管理员管理</span></a>
                 </ul>
             </div>
         </div>
@@ -37,11 +37,11 @@
             </div>
             <div class="business_menu">
                 <ul class="business_menu_list">
-                    <a class="business_menu_item" href="{{ url_for('admin.add_ticket') }}"><span>添加机票</span></a>
-                    <a class="business_menu_item" href="{{ url_for('admin.company') }}"><span>航空公司管理</span></a>
+                    <a class="business_menu_item" href="{{ url_for('admin.notice_add',admin_id=admin_id) }}"><span>添加公告</span></a>
+                    <a class="business_menu_item" href="{{ url_for('admin.test') }}"><span>司机管理</span></a>
 {#                    <a class="business_menu_item" href="{{ url_for('admin.test') }}"><span>机票信息管理</span></a>#}
 {#                    <a class="business_menu_item" href="{{ url_for('admin.test') }}"><span>航班信息查询</span></a>#}
-                    <a class="business_menu_item" href="{{ url_for('admin.manage_order') }}"><span>订票管理</span></a>
+                    <a class="business_menu_item" href="{{ url_for('admin.manage_order',admin_id=admin_id) }}"><span>订单管理</span></a>
                 </ul>
             </div>
         </div>
@@ -49,93 +49,43 @@
 </div>
 <div class="right">
     <div class="right_title">
-{#        <h3>增添/修改机票</h3>#}
+                <h3>增添公告</h3>
     </div>
+    {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
     <div class="changeform">
-        <form action="{{ url_for('admin.add_ticket') }}" method="post" style="width: 80%">
-            <table style="margin: 10px;width: 70%">
-                <tr style="height: 30px">
-                    <td>{{ form.single_double.label }}</td>
-                    <td>{{ form.single_double() }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.name.label }}</td>
-                    <td>{{ form.name(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.company_name.label }}</td>
-                    <td>{{ form.company_name(style="width:200px") }}</td>
-                </tr>
-
-                <tr style="height: 30px">
-                    <td>{{ form.depart_city.label }}</td>
-                    <td>{{ form.depart_city(style="width:200px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.arrive_city.label }}</td>
-                    <td>{{ form.arrive_city(style="width:200px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.depart_date.label }}</td>
-                    <td>{{ form.depart_date(style="width:196px",id="datepicker",onfocus="this.value = '';",onblur="if (this.value == '') {this.value = 'mm/dd/yyyy hh:mm:ss';}",required="") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.depart_time.label }}</td>
-                    <td>{{ form.depart_time(style="width:200px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.arrive_date.label }}</td>
-                    <td>{{ form.arrive_date(style="width:196px",id="datepicker1",onfocus="this.value = '';",onblur="if (this.value == '') {this.value = 'mm/dd/yyyy hh:mm:ss';}",required="") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.arrive_time.label }}</td>
-                    <td>{{ form.arrive_time(style="width:200px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.return_date.label }}</td>
-                    <td>{{ form.return_date(style="width:196px",id="datepicker2",onfocus="this.value = '';",onblur="if (this.value == '') {this.value = 'mm/dd/yyyy hh:mm:ss';}",required="") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.return_time.label }}</td>
-                    <td>{{ form.return_time(style="width:200px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.first_class_price.label }}</td>
-                    <td>{{ form.first_class_price(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.second_class_price.label }}</td>
-                    <td>{{ form.second_class_price(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.third_class_price.label }}</td>
-                    <td>{{ form.third_class_price(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.first_class_num.label }}</td>
-                    <td>{{ form.first_class_num(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.second_class_num.label }}</td>
-                    <td>{{ form.second_class_num(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.third_class_num.label }}</td>
-                    <td>{{ form.third_class_num(style="width:196px") }}</td>
-                </tr>
-                <tr style="height: 30px">
-                    <td>{{ form.depart_airport.label }}</td>
-                    <td>{{ form.depart_airport(style="width:196px") }}</td>
-                </tr>
+        <div class="company_manage">
+            <table style="margin: 20px;width: 60%">
                 <tr>
-                    <td>{{ form.arrive_airport.label }}</td>
-                    <td>{{ form.arrive_airport(style="width:200px; height:20px") }}</td>
+                    <td>发布人员</td>
+                    <td>公告信息</td>
+                    <td>发布时间</td>
                 </tr>
-
-
+                {% for item in companys %}
+                    <tr>
+                    <td>{{ item.m_id }}</td>
+                    <td>{{ item.n_content }}</td>
+                    <td>{{ item.create_datetime }}</td>
+                    </tr>
+                {% endfor %}
+    
             </table>
-            <input type="submit" value="提交">
-        </form>
+        </div>
+        <div class="company_add">
+            <form action="{{ url_for('admin.notice_add',admin_id=admin_id) }}" method="post">
+                <table>
+                    <tr>
+                        <td>{{ form.m_id.label }}</td>   <td>{{ form.m_id }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.n_content.label }}</td>  <td>{{ form.n_content }}</td>
+                    </tr>
+                </table>
+                <input type="submit" value="提交">
+            </form>
+        </div>
     </div>
 </div>
 

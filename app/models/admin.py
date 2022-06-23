@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.base import db, Base
 from sqlalchemy import Column, Integer, String, Boolean, Float, VARCHAR
 from flask_login import UserMixin
-
+from sqlalchemy_utils import PasswordType
 
 class Admin(Base):
     __tablename__ = 'admin'
@@ -21,7 +21,7 @@ class Admin(Base):
     m_gender = Column(VARCHAR(10), nullable=True)
     m_age = Column(Integer, nullable=True)
     m_role = Column(String(24), nullable=False, default='super')
-    m_password = Column('m_password', String(128), nullable=False)
+    m_password = Column('d_password', PasswordType(schemes=['pbkdf2_sha512']), nullable=False)
 
 
 

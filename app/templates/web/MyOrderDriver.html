@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户中心</title>
+    <title>司机用户中心</title>
 {#    <link rel="stylesheet" href="../../static/VIPstyle.css">#}
     <link rel="stylesheet" href="../../static/web_style.css">
 </head>
@@ -73,7 +73,6 @@
                 <td>参与拼车人</td>
                 <td>起止地点</td>
                 <td>总价</td>
-                <td>我的评论</td>
             </tr>
             {% for item in my_order %}
             <tr style="text-align: center">
@@ -85,8 +84,7 @@
                 <td>{{ item.first_class_pric }}/{{ item.second_class_pric }}/{{ item.third_class_pric }}/{{ item.fourth_class_pric }}/{{ item.fifth_class_pric }}/{{ item.sixth_class_pric }} </td>
                 <td>{{ item.depart_city }}/{{ item.arrive_city }}</td>
                 <td>{{ item.price }}</td>
-                <td>{{ item.content }}</td>
-                <td><input type="submit" value="评论" onclick="javascrtpt:window.location.href='{{ url_for('web.add_feedback',order_id=item.name) }}'"><td>
+                <td><input type="submit" value="查看评论" onclick="javascrtpt:window.location.href='{{ url_for('web.order_driver_detail',driver_id=driver_id, order_id=item.name) }}'"><td>
             </tr>
             {% endfor %}
 

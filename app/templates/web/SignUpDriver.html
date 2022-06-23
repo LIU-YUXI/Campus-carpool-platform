@@ -45,34 +45,78 @@
 
 <div class="body_content">
     <div class="title">
-        <h1 style="color:#363636;font-size: 2.1em">学生用户注册</h1>
+        <h1 style="color:#363636;font-size: 2.1em">司机用户注册</h1>
     </div>
     <div class="signup_form">
-        <form action="{{ url_for('web.register') }}" method="post" style="text-align: center">
+        <form action="{{ url_for('driver.register') }}" method="post" style="text-align: center">
             <table style="margin: auto;width: 30%">
                 <tr style="height: 30px">
-                    <td style="color:#363636;text-align: center">{{ form.u_account.label(style="width:10px") }}</td>
-                    <td >{{ form.u_account(style="width:300px;height:20px") }}</td>
+                    <td style="color:#363636;text-align: center">{{ form.d_account.label(style="width:10px") }}</td>
+                    <td>{{ form.d_account(style="width:300px;height:20px") }}</td>
                 </tr>
                 <tr style="height: 30px">
-                    <td style="color:#363636;text-align: center">{{ form.u_password.label }}</td>
-                    <td>{{ form.u_password(style="width:300px;height:20px",id="pwd") }}</td>
+                    <td style="color:#363636;text-align: center">{{ form.d_password.label }}</td>
+                    <td>{{ form.d_password(style="width:300px;height:20px",id="pwd") }}</td>
                 </tr>
                 <tr style="height: 30px">
                     <td style="color:#363636;text-align: center">{{ form.repeat_password.label }}</td>
                     <td> {{ form.repeat_password(style="width:300px;height:20px", id = "npwd") }}</td>
                 </tr>
                 <tr style="height: 30px">
-                    <td style="color:#363636;text-align: center">{{ form.u_name.label }}</td>
-                    <td>{{ form.u_name(style="width:300px;height:20px") }}</td>
+                    <td style="color:#363636;text-align: center">{{ form.d_name.label }}</td>
+                    <td>{{ form.d_name(style="width:300px;height:20px") }}</td>
                 </tr>
                 <tr style="height: 30px">
-                    <td style="color:#363636;text-align: center">{{ form.u_stid.label }}</td>
-                    <td>{{ form.u_stid(style="width:300px;height:20px",id="signup_id") }}</td>
+                    <td style="color:#363636;text-align: center">{{ form.d_workid.label }}</td>
+                    <td>{{ form.d_workid(style="width:300px;height:20px",id="signup_id") }}</td>
                 </tr>
                 <tr style="height: 30px">
-                    <td style="color:#363636;text-align: center">{{ form.u_tel.label }}</td>
-                    <td>{{ form.u_tel(style="width:300px;height:20px",id="phone_num") }}</td>
+                    <td style="color:#363636;text-align: center">{{ form.d_tel.label }}</td>
+                    <td>{{ form.d_tel(style="width:300px;height:20px",id="phone_num") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_gender.label }}</td>
+                    <td>{{ form.d_gender(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_age.label }}</td>
+                    <td>{{ form.d_age(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_crecordid.label }}</td>
+                    <td>{{ form.d_crecordid(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_record_type.label }}</td>
+                    <td>{{ form.d_record_type(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_carnum.label }}</td>
+                    <td>{{ form.d_carnum(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_record_num.label }}</td>
+                    <td>{{ form.d_record_num(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_record_feature.label }}</td>
+                    <td>{{ form.d_record_feature(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_recordid.label }}</td>
+                    <td>{{ form.d_recordid(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_license_type.label }}</td>
+                    <td>{{ form.d_license_type(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_license_st_time.label }}</td>
+                    <td>{{ form.d_license_st_time(style="width:300px;height:20px") }}</td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="color:#363636;text-align: center">{{ form.d_license_end_time.label }}</td>
+                    <td>{{ form.d_license_end_time(style="width:300px;height:20px") }}</td>
                 </tr>
             </table>
             <input type="submit" value="注册" onclick="return check()">

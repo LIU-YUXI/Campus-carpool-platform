@@ -42,63 +42,27 @@
 </div>
 <div class="body_content">
     <div class="content_top"></div>
-    <div class="left">
-        <div class="search_form">
-            <form action="{{url_for('web.search')}}" method="post">
-                <div class="from" style="width: 100%">
-                    <h3>{{ form.depart_city.label}}</h3>
-                    {{form.depart_city(class="input_from_city" )}}
-                </div>
-                <div class="to" style="width: 90%;margin-left: 20px;float: left">
-                    <h3>{{form.arrive_city.label}}</h3>
-                    {{form.arrive_city(class="input_to_city")}}
-                </div>
-                <div class="clear"></div>
-                <div class="date">
-                    <h3>{{form.depart_date.label}}</h3>
-                    {{form.depart_date(class="depart_time",id="datepicker3",onfocus="this.value = ''",onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}",required="",style="width:180px")}}
-                    <div class="clear"></div>
-                </div>
-                <div class="index_form_submit">
-                    <input id="index_submit" type="submit" value="搜索拼车订单">
-                </div>
-            </form>
-            <div class="clear"></div>
-        </div>
-    </div>
     <div class="right">
         <div class="search_result">
-            {% if tickets %}
+            {% if companys %}
                 <table class="resulttables" style="margin: 0px auto;width: 100%">
                     <tr class="airinfo" style="text-align: center">
-                        <td>订单号</td>
-                        <td>出发时间</td>
-                        <td>司机</td>
-                        <td>是否接单</td>
-                        <td>已拼人数</td>
-                        <td>参与拼车人</td>
-                        <td>起止地点</td>
-                        <td>预计总价</td>
-                    </tr>
-                    {% for item in tickets %}
-                    <tr style="text-align: center">
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.depart_date_time }}</td>
-                        <td>{{ item.driver }}</td>
-                        <td>{{ item.flag }} </td>
-                        <td>{{ item.exist_num }}</td>
-                        <td>{{ item.first_class_pric }}/{{ item.second_class_pric }}/{{ item.third_class_pric }}/{{ item.fourth_class_pric }}/{{ item.fifth_class_pric }}/{{ item.sixth_class_pric }} </td>
-                        <td>{{ item.depart_city }}/{{ item.arrive_city }}</td>
-                        <td>{{ item.price }}</td>
-                        <td><input type="submit" value="参与拼车" onclick="javascrtpt:window.location.href='{{ url_for('web.order',plain_id=item.name) }}'"><td>
-                    </tr>
-                    {% endfor %}
+                            <td>发布人员</td>
+                            <td>公告信息</td>
+                            <td>发布时间</td>
+                        </tr>
+                        {% for item in companys %}
+                            <tr>
+                            <td>{{ item.m_id }}</td>
+                            <td>{{ item.n_content }}</td>
+                            <td>{{ item.create_datetime }}</td>
+                            </tr>
+                        {% endfor %}
 
                 </table>
                     {% else %}
-                    <h1>无相关拼车订单</h1>
+                    <h1>无相关公告</h1>
                 {% endif %}
-                <td><input type="submit" value="发起拼车" onclick="javascrtpt:window.location.href='{{ url_for('web.add_order')}}'"><td></td>
             </div>
     </div>
     <div class="clear"></div>

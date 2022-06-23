@@ -20,9 +20,10 @@
         <div id="horizontalTab">
             <ul id="navigation_list">
                 <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.index') }}')"><span>约车首页</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.search') }}')"><span>司机登录</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>司机注册</span></a>
-                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>司机中心</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.notice_show') }}')"><span>公告消息</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.search_driver_detail') }}')"><span>搜索司机</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('driver.register') }}')"><span>司机注册</span></a>
+                <a class="navigation-item" onclick="window.location.replace('{{ url_for('driver.login') }}')"><span>司机中心</span></a>
                 <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.register') }}')"><span>学生注册</span></a>                
                 <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.login') }}')"><span>学生登录</span></a>
                 <a class="navigation-item" onclick="window.location.replace('{{ url_for('web.personal_info') }}')"><span>学生中心</span></a>
@@ -51,6 +52,10 @@
     <div class="title">
         <h1 style="color:#363636;font-size: 2.1em">用户登录</h1>
     </div>
+    {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
     <div class="singin_local">
         <div class="signin_form">
             <form class="vipsign" action="{{ url_for('web.login',next=request.args.next)  }}" method="post">

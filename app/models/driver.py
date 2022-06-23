@@ -8,13 +8,13 @@ from xmlrpc.client import boolean
 from flask import current_app
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from sqlalchemy_utils import PasswordType
 from app.models.base import db, Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
 # from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from app.models.License import Registration,License
-
+from sqlalchemy_utils import PasswordType
 class Driver( Base):
     __tablename__ = 'driver'
     id = Column(Integer, autoincrement=True, primary_key=True)
@@ -24,7 +24,7 @@ class Driver( Base):
     d_workid = Column(String(20),nullable=False,unique=True)
     d_gender = Column(String(10),nullable=False)
     d_age = Column(String(20))
-    d_password = Column('d_password', String(128), nullable=False)
+    d_password = Column('d_password', PasswordType(schemes=['pbkdf2_sha512']), nullable=False)
     d_recordid = Column( String(12), db.ForeignKey('license.l_id'), nullable=False)
     d_crecordid = Column( String(12),db.ForeignKey('registration.r_id'), nullable=False)
     d_disable = Column(Boolean,nullable=False)
@@ -76,7 +76,7 @@ class Driver( Base):
         self.d_password = generate_password_hash(raw)
 
     def check_passward(self, raw):
-        return check_password_hash(self.d_password, raw)
+        return self.d_password==raw# check_password_hash(self.d_password, raw)
 
 '''
 from app import login_manager

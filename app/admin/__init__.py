@@ -13,11 +13,11 @@ from app.models.base import db
 admin = Blueprint('admin', __name__)
 # 下面不加也行
 
-from app.admin import ticket_manage
+# from app.admin import ticket_manage
 from app.admin import auth
 
 from app.admin import main
-
+from app.admin import ticket_manage
 
 
 @admin.app_errorhandler(404)

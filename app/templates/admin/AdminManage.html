@@ -26,8 +26,8 @@
             </div>
             <div class="admin_manage_content">
                 <ul class="admin_manage_list">
-                    <a class="admin_manage_item" href="{{ url_for('admin.add_admin') }}"><span>添加管理员</span></a>
-                    <a class="admin_manage_item" href="{{ url_for('admin.admin_manage') }}"><span>管理员管理</span></a>
+                    <a class="admin_manage_item" href="{{ url_for('admin.add_admin',admin_id=admin_id) }}"><span>添加管理员</span></a>
+                    <a class="admin_manage_item" href="{{ url_for('admin.admin_manage',admin_id=admin_id) }}"><span>管理员管理</span></a>
                 </ul>
             </div>
         </div>
@@ -37,11 +37,11 @@
             </div>
             <div class="business_menu">
                 <ul class="business_menu_list">
-                    <a class="business_menu_item" href="{{ url_for('admin.add_ticket') }}"><span>添加公告</span></a>
-                    <a class="business_menu_item" href="{{ url_for('admin.company') }}"><span>司机管理</span></a>
+                    <a class="business_menu_item" href="{{ url_for('admin.notice_add',admin_id=admin_id) }}"><span>添加公告</span></a>
+                    <a class="business_menu_item" href="{{ url_for('admin.test') }}"><span>司机管理</span></a>
 {#                    <a class="business_menu_item" href="{{ url_for('admin.test') }}"><span>机票信息管理</span></a>#}
 {#                    <a class="business_menu_item" href="{{ url_for('admin.test') }}"><span>航班信息查询</span></a>#}
-                    <a class="business_menu_item" href="{{ url_for('admin.manage_order') }}"><span>订单管理</span></a>
+                    <a class="business_menu_item" href="{{ url_for('admin.manage_order',admin_id=admin_id) }}"><span>订单管理</span></a>
                 </ul>
             </div>
         </div>
@@ -76,7 +76,7 @@
     </div>
     <div class="admin_add_update">
         <h5 style="text-align: left; color:#cd0a0a" >添加管理员</h5>
-        <form action="{{ url_for('admin.add_admin') }}" method="post">
+        <form action="{{ url_for('admin.add_admin',admin_id=admin_id) }}" method="post">
             <table style="margin: 10px;width: 40%">
                 <tr>
                     <td>{{ form.m_account.label }}</td>  <td>{{ form.m_account }}</td>

@@ -40,6 +40,14 @@ class Order(Base):
                 self.user_id6=user_id
             self.user_num+=1
             return True
+
+    def change_info_driver(self, driver_id,price):
+        with db.auto_commit():
+            self.driver_id=driver_id
+            self.o_take=True
+            if(self.o_price>price):
+                self.o_price=price
+            return True
 # class Company(Base):
 #     __tablename__ = "company"
 #     name = Column(String(20), primary_key=True)

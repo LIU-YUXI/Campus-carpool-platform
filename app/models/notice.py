@@ -5,6 +5,6 @@ from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey, VARC
 class notice(Base):
 	__tablename__ = 'notice'
 	id = Column(Integer,autoincrement=True, primary_key=True)
-	m_id = Column(Integer, ForeignKey('admin.id'),nullable=False)  
+	m_id = Column(Integer, ForeignKey('admin.m_id'),nullable=False)  
 	n_content = Column(VARCHAR(200),nullable=False) # 管理记录
 	

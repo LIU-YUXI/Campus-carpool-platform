@@ -3,8 +3,6 @@
 from wtforms import StringField, PasswordField, Form, SelectField, SubmitField, RadioField, DateField, DateTimeField, \
     HiddenField, IntegerField
 from wtforms.validators import Length, Email, ValidationError, EqualTo, Required
-
-from app.models.ticket import Company
 from .base import DataRequired
 
 
@@ -61,11 +59,7 @@ class AddAdminForm(Form):
     repeat_password = PasswordField('确认密码', validators=[DataRequired(), Length(6, 20)])
 
 
-class AddCompanyForm(Form):
-    En_name = StringField('英文代号', validators=[DataRequired()])
-    company_name = StringField('公司名称', validators=[DataRequired(), Length(2, 10)])
+class AddNoticeForm(Form):
+    m_id = StringField('发布管理员', validators=[DataRequired()])
+    n_content = StringField('公告内容', validators=[DataRequired()])
 
-
-class ChangeCompanyForm(Form):
-    En_name = StringField('英文代号')
-    company_name = StringField('公司名称', validators=[DataRequired()])

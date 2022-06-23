@@ -44,7 +44,7 @@
     <div class="content_top"></div>
     <div class="left">
         <div class="search_form">
-            <form action="{{url_for('web.search')}}" method="post">
+            <form action="{{url_for('web.accept_order',driver_id=driver_id)}}" method="post">
                 <div class="from" style="width: 100%">
                     <h3>{{ form.depart_city.label}}</h3>
                     {{form.depart_city(class="input_from_city" )}}
@@ -90,7 +90,7 @@
                         <td>{{ item.first_class_pric }}/{{ item.second_class_pric }}/{{ item.third_class_pric }}/{{ item.fourth_class_pric }}/{{ item.fifth_class_pric }}/{{ item.sixth_class_pric }} </td>
                         <td>{{ item.depart_city }}/{{ item.arrive_city }}</td>
                         <td>{{ item.price }}</td>
-                        <td><input type="submit" value="参与拼车" onclick="javascrtpt:window.location.href='{{ url_for('web.order',plain_id=item.name) }}'"><td>
+                        <td><input type="submit" value="接受订单" onclick="javascrtpt:window.location.href='{{ url_for('web.order_submit',plain_id=driver_id) }}'"><td>
                     </tr>
                     {% endfor %}
 
@@ -98,7 +98,7 @@
                     {% else %}
                     <h1>无相关拼车订单</h1>
                 {% endif %}
-                <td><input type="submit" value="发起拼车" onclick="javascrtpt:window.location.href='{{ url_for('web.add_order')}}'"><td></td>
+
             </div>
     </div>
     <div class="clear"></div>

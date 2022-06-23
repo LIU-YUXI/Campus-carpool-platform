@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户中心</title>
+    <title>司机用户中心</title>
 {#    <link rel="stylesheet" href="../../static/VIPstyle.css">#}
     <link rel="stylesheet" href="../../static/web_style.css">
 </head>
@@ -12,7 +12,7 @@
 <div class="bcg" style="background: rgba(255,255,255,0.8);height: 800px">
     <div id="head" style="color: black">
     <div class="head_title">
-        <h1 style="color: #212121">用户中心</h1>
+        <h1 style="color: #212121">司机用户中心</h1>
     </div>
     <div class="navigation">
         <div id="horizontalTab">
@@ -73,7 +73,7 @@
                 <td>参与拼车人</td>
                 <td>起止地点</td>
                 <td>总价</td>
-                <td>我的评论</td>
+                <td>用户评价</td>
             </tr>
             {% for item in my_order %}
             <tr style="text-align: center">
@@ -86,8 +86,8 @@
                 <td>{{ item.depart_city }}/{{ item.arrive_city }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.content }}</td>
-                <td><input type="submit" value="评论" onclick="javascrtpt:window.location.href='{{ url_for('web.add_feedback',order_id=item.name) }}'"><td>
             </tr>
+            <td><input type="submit" value="返回" onclick="javascrtpt:window.location.href='{{ url_for('web.my_order_driver', driver_id=driver_id) }}'"><td>
             {% endfor %}
 
         </table>

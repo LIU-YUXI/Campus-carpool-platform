@@ -11,6 +11,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from app.forms.auth import RegisterForm, LoginForm, ChangeInfoForm
 from app.models.base import db
 from app.models.user import User, get_user
+from app.models.notice import notice
 from . import web
 
 
@@ -25,7 +26,6 @@ def register():
             db.session.add(user)
             return redirect(url_for('web.login'))
     return render_template('web/SignUp.html', form=form)
-
 
 @web.route('/login', methods=['GET', 'POST'])
 def login():
@@ -105,3 +105,8 @@ def change_password():
 def logout():
     logout_user()
     return redirect(url_for('web.index'))
+
+@web.route('/notice')
+def notice_show():
+    all_notice=notice.query.filter_by().all()
+    return render_template('web/Notices.html', companys=all_notice)
