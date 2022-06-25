@@ -11,6 +11,6 @@ insert into license values(1650562683,'999999999991','C2','2015-11-02','2025-11-
 insert into registration values(1650562683,'999999999991','小型客车','D123333',5,'黑色小轿车');
 insert into driver values(1650562683,1,'李师傅','李平','13855559999','1022222','男',43,'$pbkdf2-sha512$25000$hRDivHdu7T2HUIqRcm5NiQ$pCTvwmzEnQfVPA/XaNMPUoDq5O3K7X5A/buXjgHjYkGz/i6RKkJjpfZICFhDcRUymfbEMf9e.Fnn5Bko7OQBlg','999999999999','999999999999',0);
 insert into driver values(1650562683,2,'陈师傅','陈大河','18855559999','1422222','男',38,'$pbkdf2-sha512$25000$hRDivHdu7T2HUIqRcm5NiQ$pCTvwmzEnQfVPA/XaNMPUoDq5O3K7X5A/buXjgHjYkGz/i6RKkJjpfZICFhDcRUymfbEMf9e.Fnn5Bko7OQBlg','999999999991','999999999991',0);
-insert into orders values(1650562683,1,1,2,3,null,null,null,1,'嘉定校区','虹桥火车站','2022-04-22','11:20:00',1,0,90);
-insert into orders values(1650562683,2,4,5,6,7,null,null,null,'嘉定校区','虹桥火车站','2022-04-22','14:30:00',0,0,80);
+insert into Orders values(1650562683,1,1,2,3,null,null,null,1,'嘉定校区','虹桥火车站','2022-04-22','11:20:00',1,0,90);
+insert into Orders values(1650562683,2,4,5,6,7,null,null,null,'嘉定校区','虹桥火车站','2022-04-22','14:30:00',0,0,80);
 insert into admin values(1650562683,2,'小王','王小宁','15100000000','女',33,'super','$pbkdf2-sha512$25000$hRDivHdu7T2HUIqRcm5NiQ$pCTvwmzEnQfVPA/XaNMPUoDq5O3K7X5A/buXjgHjYkGz/i6RKkJjpfZICFhDcRUymfbEMf9e.Fnn5Bko7OQBlg');
